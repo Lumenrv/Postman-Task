@@ -9,7 +9,7 @@ jobs:
         mongodb-version: [4.2]
   steps:
   - name: Check out Git repositor
-    uses: actions/checkout@v1
+    uses: actions/checkout@v2
   - name: Set up Node.js
     uses: actions/setup-node@v1
     with:
