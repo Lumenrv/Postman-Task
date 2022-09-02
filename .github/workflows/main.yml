@@ -1,12 +1,16 @@
-- name: Checkout
-  uses: actions/checkout@v1
+name: Newman Run
 
-- name: Run API Tests
-  id: run-newman
-  uses: anthonyvscode/newman-action@v1
-  with:
-    collection: collection.json
-    reporters: cli
+on:
+  pull_request:
+    branches:
+    - master
 
-- name: Output summary to console
-  run: echo ${{ steps.run-newman.outputs.summary }}
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: petstore.collection.json
+          environment: workspace.postman_globals.json
