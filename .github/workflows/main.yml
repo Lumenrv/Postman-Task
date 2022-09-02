@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
+      - uses: matt-ball/newman-action@v1.0.4
+
         with:
           collection: petstore.collection.json
           environment: workspace.postman_globals.json
