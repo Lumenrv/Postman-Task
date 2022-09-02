@@ -1,11 +1,9 @@
 products:
   - id: 1
-    name: tomato
-    price: 10
-    sku: 1232143543543
-    description: They are usually red, scarlet, or yellow, though green and purple
-      varieties do exist, and they vary in shape from almost spherical to oval
-      and elongate to pear-shaped.
+    name: banana
+    price: 155
+    sku: 123321123
+    description: changed description
   - id: 2
     name: lettuce
     price: 20
@@ -17,6 +15,96 @@ products:
     price: 30
     sku: 999921312423312
     description: awesome
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh
+    id: 5
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 6
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 7
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 8
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 9
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 10
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 11
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 12
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 12
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 13
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 14
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 15
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh test
+    id: 16
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh
+    id: 17
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh
+    id: 18
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh
+    id: 19
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh
+    id: 20
+  - name: orange
+    price: 8
+    sku: 123321123
+    description: wouh
+    id: 21
 orders:
   - id: 1
     name: order1
@@ -27,6 +115,198 @@ orders:
   - id: 3
     name: order2
     sku: 999921312423312
+  - query: "
+
+      \    query IntrospectionQuery {
+
+      \      __schema {
+
+      \        queryType { name }
+
+      \        mutationType { name }
+
+      \        subscriptionType { name }
+
+      \        types {
+
+      \          ...FullType
+
+      \        }
+
+      \        directives {
+
+      \          name
+
+      \          description
+
+      \          locations
+
+      \          args {
+
+      \            ...InputValue
+
+      \          }
+
+      \        }
+
+      \      }
+
+      \    }
+
+
+      \    fragment FullType on __Type {
+
+      \      kind
+
+      \      name
+
+      \      description
+
+      \      fields(includeDeprecated: true) {
+
+      \        name
+
+      \        description
+
+      \        args {
+
+      \          ...InputValue
+
+      \        }
+
+      \        type {
+
+      \          ...TypeRef
+
+      \        }
+
+      \        isDeprecated
+
+      \        deprecationReason
+
+      \      }
+
+      \      inputFields {
+
+      \        ...InputValue
+
+      \      }
+
+      \      interfaces {
+
+      \        ...TypeRef
+
+      \      }
+
+      \      enumValues(includeDeprecated: true) {
+
+      \        name
+
+      \        description
+
+      \        isDeprecated
+
+      \        deprecationReason
+
+      \      }
+
+      \      possibleTypes {
+
+      \        ...TypeRef
+
+      \      }
+
+      \    }
+
+
+      \    fragment InputValue on __InputValue {
+
+      \      name
+
+      \      description
+
+      \      type { ...TypeRef }
+
+      \      defaultValue
+
+      \    }
+
+
+      \    fragment TypeRef on __Type {
+
+      \      kind
+
+      \      name
+
+      \      ofType {
+
+      \        kind
+
+      \        name
+
+      \        ofType {
+
+      \          kind
+
+      \          name
+
+      \          ofType {
+
+      \            kind
+
+      \            name
+
+      \            ofType {
+
+      \              kind
+
+      \              name
+
+      \              ofType {
+
+      \                kind
+
+      \                name
+
+      \                ofType {
+
+      \                  kind
+
+      \                  name
+
+      \                  ofType {
+
+      \                    kind
+
+      \                    name
+
+      \                  }
+
+      \                }
+
+      \              }
+
+      \            }
+
+      \          }
+
+      \        }
+
+      \      }
+
+      \    }
+
+      \  "
+    id: 5
+  - name: order5
+    sku: 123425445656765
+    id: 6
+  - name: order5
+    sku: 123425445656765
+    id: 7
+  - name: order5
+    sku: 123425445656765
+    id: 7
 users:
   - id: 1
     firstName: Alice
@@ -109,12 +389,84 @@ users:
     signUpDate: 2019-08-24
     status: active
     level: consumer
-  - id: 10
-    firstName: asdasd
-    lastName: asd
-    email: asdasd.smith@gmail.com
-    dateOfBirth: 1997-10-31
-    emailVerified: false
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
     signUpDate: 2019-08-24
     status: active
-    level: consumer
+    level: lord
+    id: 11
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 12
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 12
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 13
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 14
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 15
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 16
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 18
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 18

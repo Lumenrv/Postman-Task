@@ -6,8 +6,9 @@
 - <a href="https://learning.postman.com/docs/writing-scripts/script-references/test-examples/">Postman tests examples (off doc)</a>
 2. Download this repo.
 3. Run `npm i` (install node.js dependencies)
-4. Run `npm run tern-on-api`(to run testing server locally )
+4. Run `npm run tern-on-api`(to run testing server locally ) 
 
+// copy mockApi/db_back_up.yaml mockApi/db_stage.yaml && 
 ### Overview of local server testing
 Routes `/products`, `/orders` and `/users`. Below is a table of supported operations with `products` as example resource. The same operations are also supports for `orders/` and `users/`.
 

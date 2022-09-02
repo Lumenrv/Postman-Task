@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "67d91bc7-aa8b-4727-aad5-9abcb298ed08",
+		"_postman_id": "044b8cdd-2454-4c94-b739-8161fa54b749",
 		"name": "store",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18317683"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23121286"
 	},
 	"item": [
 		{
@@ -33,38 +33,58 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/products",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"products"
-							]
-						}
+						"url": "{{baseUrl}}/products"
 					},
 					"response": []
 				},
 				{
 					"name": "Get product by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"apple\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/products/3",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"products",
-								"3"
-							]
-						}
+						"url": "{{baseUrl}}/products/3"
 					},
 					"response": []
 				},
 				{
 					"name": "Create product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.price).to.eql(8);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -77,59 +97,60 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{baseUrl}}/products",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"products"
-							]
-						}
+						"url": "{{baseUrl}}/products"
 					},
 					"response": []
 				},
 				{
 					"name": "Update product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"banana\",\r\n    \"price\": 155,\r\n    \"sku\": 123321123,\r\n    \"description\": \"changed description\"\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"banana\",\r\n    \"price\": 155,\r\n    \"sku\": 123321123,\r\n    \"description\": \"changed description\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{baseUrl}}/products",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"products"
-							]
-						}
+						"url": "{{baseUrl}}/products"
 					},
 					"response": []
 				},
 				{
 					"name": "Remove product by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/products/4",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"products",
-								"4"
-							]
-						}
+						"url": "{{baseUrl}}/products/4"
 					},
 					"response": []
 				}
@@ -140,16 +161,46 @@
 			"item": [
 				{
 					"name": "List orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"order5\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{baseUrl}}/orders",
+							"raw": "{{baseUrl}}/orders?sortOrder=ASC&sortKey=name",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"orders"
+							],
+							"query": [
+								{
+									"key": "sortOrder",
+									"value": "ASC"
+								},
+								{
+									"key": "sortKey",
+									"value": "name"
+								}
 							]
 						}
 					},
@@ -160,16 +211,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/orders/3",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"orders",
-								"3"
-							]
-						}
+						"url": "{{baseUrl}}/orders/3"
 					},
 					"response": []
 				},
@@ -187,15 +229,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{baseUrl}}/orders",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"orders"
-							]
-						}
+						"url": "{{baseUrl}}/orders"
 					},
 					"response": []
 				},
@@ -213,15 +247,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{baseUrl}}/orders",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"orders"
-							]
-						}
+						"url": "{{baseUrl}}/orders"
 					},
 					"response": []
 				},
@@ -230,16 +256,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/orders/4",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"orders",
-								"4"
-							]
-						}
+						"url": "{{baseUrl}}/orders/4"
 					},
 					"response": []
 				}
@@ -253,15 +270,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/users",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"users"
-							]
-						}
+						"url": "{{baseUrl}}/users"
 					},
 					"response": []
 				},
@@ -270,16 +279,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/users/3",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"users",
-								"3"
-							]
-						}
+						"url": "{{baseUrl}}/users/3"
 					},
 					"response": []
 				},
@@ -297,15 +297,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{baseUrl}}/users",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"users"
-							]
-						}
+						"url": "{{baseUrl}}/users"
 					},
 					"response": []
 				},
@@ -323,15 +315,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{baseUrl}}/users",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"users"
-							]
-						}
+						"url": "{{baseUrl}}/users"
 					},
 					"response": []
 				},
@@ -340,16 +324,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/users/10",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"users",
-								"10"
-							]
-						}
+						"url": "{{baseUrl}}/users/10"
 					},
 					"response": []
 				}
