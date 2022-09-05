@@ -42,3 +42,5 @@ Examples:
 
 You can use another API to perform  your testing instead of local store API and `store.collection.json`. 
 - <a href="https://github.com/public-apis/public-apis"> Public API list </a>
+
+###  The test is complete
