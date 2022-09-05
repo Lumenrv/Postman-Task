@@ -1,12 +1,10 @@
 name: Test-Build
-on:
-  push:
-    branches:
-      - master
-      - main
+on: [pusch]
+
 jobs:
-  test-api:
+  build:
     runs-on: ubuntu-latest
+    
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
