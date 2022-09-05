@@ -2,7 +2,7 @@ name: postman-pull-request
 
 on: 
   push
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +12,7 @@ jobs:
         mongodb-version: [4.2]
 
   steps:
+  
     - name: Check the git repository
       uses: actions/checkout@v1
 
